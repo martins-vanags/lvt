@@ -41,3 +41,9 @@ Calendar integration to visualize lessons based on selected dates.
 </i>
 
 
+
+https://github.com/martins-vanags/lvt/assets/49243229/6555408c-e976-4133-80b0-f69ab3512ce7
+
+
+
+
