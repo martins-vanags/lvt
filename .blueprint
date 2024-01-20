@@ -1,0 +1,15 @@
+created:
+    - database/factories/LessonFactory.php
+    - database/factories/CourseFactory.php
+    - database/factories/CourseLocationFactory.php
+    - database/migrations/2024_01_20_203526_create_lessons_table.php
+    - database/migrations/2024_01_20_203527_create_courses_table.php
+    - database/migrations/2024_01_20_203528_create_course_locations_table.php
+    - app/Models/Lesson.php
+    - app/Models/Course.php
+    - app/Models/CourseLocation.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Lesson: { location: string, starts_at: datetime, ends_at: datetime, relationships: { belongsTo: 'Course, User:teacher' } }
+    Course: { name: string, relationships: { hasMany: Lesson } }
+    CourseLocation: { name: string }

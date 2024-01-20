@@ -1,2 +1,22 @@
-Models:
+models:
+  Lesson:
+    location: string
+    starts_at: datetime
+    ends_at: datetime
+    relationships:
+      belongsTo: Course, User:teacher
+
+  Course:
+    name: string
+    relationships:
+      hasMany: Lesson
+
+  CourseLocation:
+    name: string
+
+
+
+
+
+
 
