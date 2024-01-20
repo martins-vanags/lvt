@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\TeacherResource\Pages;
 use App\Filament\Admin\Resources\TeacherResource\RelationManagers;
+use App\Models\CourseLocation;
 use App\Models\Teacher;
 use App\Models\User;
 use Filament\Forms;
@@ -12,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TeacherResource extends Resource
@@ -25,7 +27,10 @@ class TeacherResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name'),
+                Forms\Components\TextInput::make('email'),
+                Forms\Components\DateTimePicker::make('created_at')
+                    ->label('Started working in'),
             ]);
     }
 
@@ -52,6 +57,11 @@ class TeacherResource extends Resource
     }
 
     public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function canEdit(User|Model $record): bool
     {
         return false;
     }
