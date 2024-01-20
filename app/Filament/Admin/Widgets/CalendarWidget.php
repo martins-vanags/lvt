@@ -52,7 +52,6 @@ class CalendarWidget extends FullCalendarWidget
             'course',
             'teacher',
         ])
-            ->where('teacher_id', auth()->user()->id)
             ->where('starts_at', '>=', $info['start'])
             ->where('ends_at', '<=', $info['end'])
             ->get()
