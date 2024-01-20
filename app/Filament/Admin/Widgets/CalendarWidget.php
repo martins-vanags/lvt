@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Widgets;
 use App\Filament\Admin\Resources\LessonResource;
 use App\Models\CourseLocation;
 use App\Models\Lesson;
+use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
@@ -31,10 +32,11 @@ class CalendarWidget extends FullCalendarWidget
                         ->searchable()
                         ->preload()
                         ->required(),
-                    TextInput::make('teacher_id')
-                        ->default(auth()->user()->id)
-                        ->disabled()
-                        ->hidden()
+                    Select::make('teacher_id')
+                        ->label('Teacher')
+                        ->searchable()
+                        ->preload()
+                        ->options(User::select(['id', 'name'])->get()->mapWithKeys(fn(User $user) => [$user->id => $user->name])->toArray())
                         ->required(),
                     DateTimePicker::make('starts_at')
                         ->native(false)
