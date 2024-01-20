@@ -17,7 +17,9 @@ class CourseLocationResource extends Resource
 {
     protected static ?string $model = CourseLocation::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Course planning';
+
+    protected static ?string $navigationLabel = 'Locations';
 
     public static function form(Form $form): Form
     {
